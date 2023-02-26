@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+
+<body>
+    <script>
+        // 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+        const numeroPrimo = (numero = 0) => {
+            if (!numero) return console.warn("NO INGRESASTE UN  NÚMERO")
+            if (typeof numero !== "number") return console.warn("ESO no es un NUMERO")
+            if (numero < 0 || numero === 0) return console.warn("El número ingresado debe ser POSITIVO")
+
+            return ((numero % 2) == 1)
+                ? console.info(`El número "${numero}" NO ES PRIMO`)
+                : console.info(`El número "${numero}" ES PRIMO`)
+        }
+        numeroPrimo()
+        // numeroPrimo(-8)
+        numeroPrimo(0)
+        numeroPrimo("9")
+        numeroPrimo(7)
+        // SOLUCIÓN PROFE: Función expresada
+        const numeroPrimoProfe = (numero = undefined) => {
+            // Validaciones
+            if (numero === undefined) return console.warn("No ingresaste un número")
+            if (typeof numero !== "number") return console.warn(`El valor "${numero}" ingresado, NO ES NÚMERO`)
+            if (numero === 0) return console.error("El número no puede ser 0")
+            if (Math.sign(numero) === -1) return console.error("El número NO puede ser NEGATIVO")
+            if (numero === 1) return console.error("El número no puede ser 1")
+            // Validaciones
+            let divisible = false
+
+            for (let i = 2; i < numero; i++) {
+                if ((numero % i) === 0) {
+                    divisible = true
+                    break
+                }
+            }
+            return (divisible)
+                ? console.info(`El número ${numero} NO ES PRIMO`)
+                : console.info(`El número ${numero} SI ES PRIMO`)
+        }
+        numeroPrimoProfe()
+        numeroPrimoProfe("320")
+        numeroPrimoProfe(false)
+        numeroPrimoProfe(0)
+        numeroPrimoProfe(1)
+        numeroPrimoProfe(-19)
+        numeroPrimoProfe(7)
+        numeroPrimoProfe(200)
+        // PROBLEMA LOS PRIMEROS 500 NÚMEROS PRIMOS
+        const primeros500Primos = () => {
+            const vectorPrimos = []
+            // Número para dividir
+            let primo = true
+            for (let i = 1; i <= 100; i++) {
+                let contador = 0
+                for (let j = 1; j <= i; j++) {
+                    if ((i % j) === 0) {
+                        contador++
+                    }
+                }
+                if (contador == 2) vectorPrimos.push(i)
+                //console.log(i)
+            }
+            console.log(vectorPrimos)
+
+        }
+        primeros500Primos()
+
+
+
+
+
+        // 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+        const numeroPar = (numero = 1) => {
+            if (!numero) return console.info("NO ES NÚMERO")
+            if (typeof numero !== "number") return console.info("Introduce un NÚMERO")
+            if (numero < 0) return console.log("Ingresa un número POSITIVO")
+            if (numero === 0) return console.log("EL 0 ES neutro")
+
+            return ((numero % 2) === 0)
+                ? console.info(`El número "${numero}" es PAR`)
+                : console.info(`El número "${numero}" es IMPAR`)
+        }
+        numeroPar(999)
+        numeroPar(1000)
+        // SOLUCIÓN PROFE: Función expresada
+        const numeroParProfe = (numero = undefined) => {
+            if (numero === undefined) return console.warn("No ingresaste un número")
+            if (typeof numero !== "number") return console.warn(`El valor "${numero}" ingresado, NO ES NÚMERO`)
+
+            return ((numero % 2) === 0)
+                ? console.info(numero + " PAR")
+                : console.info(numero + " IMPAR")
+        }
+        numeroParProfe(9)
+        numeroParProfe(100)
+
+
+
+
+
+        // 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+        const temperaturas = (grados = 0, tipo = "") => {
+            if (!grados) console.log("INGRESA UN NÚMERO")
+            if (typeof grados !== "number") console.log("PON UN NÚMERO")
+            if (tipo.toUpperCase() === "C") {
+                if (grados === 0) {
+                    console.log("0°C => 32° F")
+                } else {
+                    let gradosFarenheit = grados * 64
+                    console.info(grados + " ° C => " + gradosFarenheit + "° F")
+                }
+            }
+            if (tipo.toUpperCase() === "F") {
+                if (grados === 32) {
+                    console.log("32° F => 0° C")
+                } else {
+                    let gradosCentigrados = grados / 64
+                    console.info(grados + " ° F => " + gradosCentigrados + "° C")
+                }
+            }
+        }
+        temperaturas(0, "c")
+        temperaturas(32, "f")
+        temperaturas(2, "c")
+        temperaturas(64, "f")
+        // SOLUCIÓN PROFE: Función expresada
+        const convertirGrados = (grados = undefined, unidad = undefined) => {
+            if (grados === undefined) return console.warn("No es NUMERO")
+            if (typeof grados !== "number") return console.error("ERROR")
+            if (unidad !== "string") return console.error("NO ES VALIDO")
+            if (unidad.length == !1 || !/(C|F)/.test(unidad)) return console.warn("VALOR DE UNIDAD NO RECONOCIDO")
+
+            if (unidad.toUpperCase === "C") {
+                return console.info(`${grados}°C = ${Math.round(({ grados } * (9 / 5)) + 32)}°F`)
+            }
+        }
+        convertirGrados(0, "c")
+        /*
+        convertirGrados()
+        convertirGrados("2")
+        convertirGrados(2)
+        convertirGrados(true)
+        */
+
+    </script>
+</body>
+
+</html>

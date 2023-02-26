@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        OR -> PASA EL VERDADERO => 
+        AND -> PASA EL FALSO 
+        */
+       function saludar(nombre) {
+           nombre = nombre || "Unknown"
+           console.log(`Hola ${nombre}`)
+       }
+
+       console.log()
+
+       saludar("Brau")
+       saludar()
+
+       console.log("Cadena" || "Valor de la derecha")
+       console.log(19 || "Derecha")
+       console.log(true || "Derecha")
+       console.log([] || "Derecha")
+       console.log(false || "Derecha")
+       console.log(null || "Derecha")
+
+
+       console.log("Cadena" && "Valor de la derecha")
+       console.log(19 && "Derecha")
+       console.log(true && "Derecha")
+       console.log([] && "Derecha")
+       console.log(false && "Derecha")
+       console.log(null && "Derecha")
+    </script>    
+</body>
+</html>

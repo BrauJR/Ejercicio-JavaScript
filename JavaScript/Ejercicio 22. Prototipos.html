@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROTOTIPOS</title>
+</head>
+<body>
+    <script>
+        /*
+        // ******** PROTOTIPOS ********
+        const animal = {
+            nombre: "Cacho",
+            sonar(){
+                console.log("Jeje aquí andamos")
+            }
+        }
+
+        const animal2 = {
+            nombre: "Bugs",
+            sonar(){
+                console.log("Jeje aquí andamos")
+            }
+        }
+        console.log(animal)
+        console.log(animal2)
+        */
+
+        // ********** Función constructora **********
+        /*
+        function Animal(nombre, genero) {
+            // Atributos
+            this.nombre = nombre
+            this.genero = genero
+            // Métodos
+            this.sonar = function() {
+                console.log("Jeje aquí andamos")
+            }
+        }
+        */
+
+        // ********** Función constructora **********
+        // Donde asignamos los métodos al prototipo no a la función como tal
+        function Animal(nombre, genero) {
+            // Atributos
+            this.nombre = nombre
+            this.genero = genero
+        }
+
+        // Métodos agregados al prototipo de la función constructora
+        Animal.prototype.sonar = function() {
+                console.log("Jeje aquí andamos")
+        }
+
+        const snnopy = new Animal("Snnopy", "Macho"),
+        lolaBunny = new Animal("LolaBunny", "Hembra")
+
+        console.log(snnopy)
+        console.log(lolaBunny)
+
+        snnopy.sonar()
+        lolaBunny.sonar()
+
+
+    </script>    
+</body>
+</html>

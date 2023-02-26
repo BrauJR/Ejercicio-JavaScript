@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicionales</title>
+</head>
+
+<body>
+    <script>
+        // if {} else {}
+        let edad = 78
+        if (edad > 17) {
+            console.log("Eres MAYOR de edad")
+        } else {
+            console.log("Eres MENOR de edad")
+        }
+
+        if (edad >= 18) {
+            console.log("Eres MAYOR de edad")
+        } else {
+            console.log("Eres MENOR de edad")
+        }
+
+        if (edad < 18) {
+            console.log("Eres MENOR de edad")
+        } else {
+            console.log("Eres MAYOR de edad")
+        }
+
+        if (edad <= 17) {
+            console.log("Eres MENOR de edad")
+        } else {
+            console.log("Eres MAYOR de edad")
+        }
+
+        // if{} else{} if{} else{}
+        let hora = 24
+        if (hora >= 0 && hora <= 5) {
+            console.log("¡Dejame Dormir! zZZZ")
+        } else if (hora >= 6 && hora <= 11) {
+            console.log("¡Good Morning!")
+        } else if (hora >= 12 && hora <= 18) {
+            console.log("¡Good Afternoon!")
+        } else {
+            console.log("¡Good night!")
+        }
+
+        if (hora < 6) {
+            console.log("¡Dejame Dormir! zZZZ")
+        } else if (hora > 5 && hora < 12) {
+            console.log("¡Good Morning!")
+        } else if (hora > 11 && hora < 19) {
+            console.log("¡Good Afternoon!")
+        } else {
+            console.log("¡Good night!")
+        }
+
+        // Operador ternario (condición) ? verdadero : false
+        console.log("********Operador Ternario********")
+        let eresMayor = (edad >= 18) ? "Eres MAYOR de edad" : "Eres MENOR de edad"
+        console.log(eresMayor)
+
+        let num = -9
+        let numero = (num > 0)
+            ? "POSITIVO"
+            : "NEGATIVO"
+        console.log(numero)
+
+        // Switch - case
+        let dia = 100
+        switch (dia) {
+            case 0:
+                console.log("Domingo")
+                break;
+            case 1:
+                console.log("Lunes")
+                break;
+            case 2:
+                console.log("Martes")
+                break;
+            case 3:
+                console.log("Miércoles")
+                break; e
+            case 4:
+                console.log("Jueves")
+                break;
+            case 5:
+                console.log("Viernes")
+                break;
+            case 6:
+                console.log("Sábado")
+                break;
+            default:
+                console.log("¡El día NO EXISTE!")
+                break;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto DATE</title>
+</head>
+<body>
+    <script>
+        console.log(Date())
+        let fecha = new Date()
+        console.log(fecha)
+        // Día del mes
+        console.log(fecha.getDate())
+        // Día de la semana D, L, M... 0, 1, 2...
+        console.log(fecha.getDay())
+        // Mes ENE, FEB, MAR... 0, 1, 2...
+        console.log(fecha.getMonth())
+        // Año
+        console.log(fecha.getFullYear())
+        // Hora
+        // Días
+        console.log(fecha.getHours())
+        // Minutos
+        console.log(fecha.getMinutes())
+        // Segundos
+        console.log(fecha.getSeconds())
+        // Milisegundos
+        console.log(fecha.getMilliseconds())
+        // Entendible
+        console.log(fecha.toString())
+        // Día
+        console.log(fecha.toDateString())
+        // Fecha
+        console.log(fecha.toLocaleString())
+        console.log(fecha.toLocaleDateString())
+        console.log(fecha.toLocaleTimeString())
+
+        // Diferencia con la zona horaria "0"
+        console.log(fecha.getTimezoneOffset())
+        console.log(fecha.getUTCDate())
+        console.log(fecha.getUTCHours())
+
+        // Representa el tiempo (instánte) en segundos desde 1° de Enero de 1970
+        console.log(Date.now())
+        let cumpleBrau = new Date(2001, 1, 23)
+        console.log(cumpleBrau)
+    </script>    
+</body>
+</html>

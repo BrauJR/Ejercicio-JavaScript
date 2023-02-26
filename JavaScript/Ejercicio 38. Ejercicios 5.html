@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+
+<body>
+    <script>
+        // 15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+        const conversorBinarioaDecimal = (numero = undefined, base = undefined) => {
+            // VALIDACIONES
+            if (!numero || !base) {
+                console.info("Ingresa un número")
+            }
+            if (numero === undefined || base === undefined) {
+                console.info("Ingresa ambos valores ¡Por favor!")
+            }
+            // VALIDACIONES
+            // CONVERSIÓN
+            if (base === 2) {
+                let equivalenciaBinaria = 1
+                let numeroSeparado = numero.toString().split("")
+                /*
+                console.info(numeroSeparado[0])
+                console.info(numeroSeparado[1])
+                console.info(numeroSeparado[2])
+                */
+                let valorDecimal = 2
+                let valorDecimalTOTAL = 0
+                /*
+                if (numeroSeparado[numeroSeparado.length - 1] === "1") {
+                    valorDecimal = 1
+                }
+                */
+                console.info("VD: " + valorDecimal)
+                for (let i = numeroSeparado.length - 1; i >= 0; i--) {
+                    console.info(i + " " + numeroSeparado[i])
+                    valorDecimal += valorDecimal * 2 
+                    if (numeroSeparado[i] === "1") {
+                        valorDecimalTOTAL += valorDecimal // 2
+                    }
+                }
+                if (numeroSeparado[numeroSeparado.length - 1] === "1") {
+                    valorDecimalTOTAL -= 1
+                }
+                return console.info(`El número ${numero} binario es igual a ${valorDecimalTOTAL} en decimal y es base "10"`)
+            }
+            // CONVERSIÓN
+        }
+        conversorBinarioaDecimal(100, 2)
+        // SOLUCIÓN PROFE: función expresada
+        console.info("****************************** PROBLEMA 1 ******************************")
+        const conversorBinarioaDecimalProfe = (numero = undefined, base = undefined) => {
+            console.info("----- CONVERSIÓN PROFE -----")
+            // VALIDACIONES
+            if(numero === undefined) return console.warn("No ingresaste un número a convertir")
+            if(typeof numero !== "number") return console.warn(`El valor "${numero} ingresado, NO ES NÚMERO"`)
+            if(base === undefined) return console.warn("NECESITAS INSERTAR UNA base")
+            if(typeof base !== "number") return console.warn(`El valor "${base} ingresado, NO ES NÚMERO"`)
+            // VALIDACIONES
+            // CONVERSIÓN
+            if(base === 2) {
+                return console.info(`${numero} base ${base} = ${parseInt(numero, base)} base 10`)
+            } else if(base === 10) {
+                return console.info(`${numero} base ${base} = ${numero.toString(base)} base 2`)
+            } else {
+                return console.error("El tipo de BASE a convertir NO ES VÁLIDO")
+            }
+            // CONVERSIÓN
+        }
+        conversorBinarioaDecimalProfe()
+        conversorBinarioaDecimalProfe("2")
+        conversorBinarioaDecimalProfe(100)
+        conversorBinarioaDecimalProfe(100, "2")
+        conversorBinarioaDecimalProfe(100, 2)
+        conversorBinarioaDecimalProfe(1110010, 2)
+        conversorBinarioaDecimalProfe(4, 10)
+        conversorBinarioaDecimalProfe(114, 10)
+        conversorBinarioaDecimalProfe(114, 3)
+
+
+
+
+
+
+
+        // 16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.       
+        const descuento = (monto = undefined, descuento1 = undefined) => {
+            if(!monto || !descuento1) {
+                console.warn("No ingresaste un NÚMERO")
+            }
+            if(monto === undefined || descuento1 === undefined) {
+                console.warn("Ingresa los datos COMPLETOS")
+            }
+            if(typeof monto !== "number" || typeof descuento1 !== "number") {
+                console.error("Eso no es un número")
+            }
+            let montoPagar = monto - ((monto * descuento1) / 100)
+           console.info(`El monto a pagar es $${montoPagar}`)
+        }
+        descuento(1000, 20)
+        // SOLUCIÓN PROFE:
+        console.info("****************************** PROBLEMA 2 ******************************")
+        const aplicarDescuento = (monto = undefined, descuento = 0) => {
+            if(monto === undefined) return console.warn("No ingresaste el MONTO")
+            if(typeof monto !== "number") return console.warn("El valor no es NÚMERO")
+            if(monto === 0) return console.log("El monto no puede ser 0")
+            if(Math.sign(monto) === -1) return console.log("NO PUEDE SER NEGATIVO")
+            if(typeof descuento !== "number") return console.error("El descuento no de NÚMERO")
+            if(Math.sign(descuento) === -1) return console.log("NO PUEDE SER NEGATIVO")
+
+            return console.info(`$${monto} - ${descuento}% = $${monto - ((monto * descuento) / 100)}`)
+        }
+        aplicarDescuento()
+        aplicarDescuento("200")
+        aplicarDescuento(0)
+        aplicarDescuento(-100)
+        aplicarDescuento(100, "2")
+        aplicarDescuento(100, -2)    
+        aplicarDescuento(1000)
+        aplicarDescuento(1000, 25)  
+
+        // 17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).        
+        // SOLUCIÓN PROFE: Función expresada
+        console.info("****************************** PROBLEMA 3 ******************************")
+        const calcularAnios = (fecha = undefined) => {
+            if(fecha === undefined) return console.warn("No ingresaste una FECHA")
+            if(!(fecha instanceof Date)) return console.warn("El valor que ingresaste no es una fecha válida")
+            let hoyMenosFecha = new Date().getTime() - fecha.getTime()
+            let aniosEnMS = 1000 * 60 * 60 * 24 * 365
+
+            let aniosHumanos = Math.floor(hoyMenosFecha / aniosEnMS)
+
+            return(Math.sign(aniosHumanos) === -1)
+             ? console.info(`Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}.`)
+             : (Math.sign(aniosHumanos) === 1)
+               ? console.info(`Han pasado ${aniosHumanos} años desde el ${fecha.getFullYear()}.`)
+               : console.info(`Estamos en el año actual ${fecha.getFullYear()}.`)
+        }
+        calcularAnios()
+        calcularAnios({})
+        calcularAnios(false)
+        calcularAnios(new Date())
+        calcularAnios(new Date(2001, 2, 06))
+        calcularAnios(new Date(2010, 2, 06))
+        calcularAnios(new Date(2025, 2, 06))
+    </script>
+</body>
+
+</html>

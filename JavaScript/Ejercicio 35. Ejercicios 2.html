@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+
+<body>
+    <script>
+        // Ejercicio 5. Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+        console.log("********** Ejercicio 5 **********")
+        const alReves = (cadena = "") => {
+            try {
+                let cadenaAlReves = ""
+                // Validación
+                if (cadena.length === undefined) {
+                    throw new Error("No ingresaste una cadena")
+                }
+                for (let i = cadena.length; i >= 0; i--) {
+                    cadenaAlReves = cadenaAlReves + cadena.charAt(i)
+                }
+                console.log(cadenaAlReves)
+            } catch (error) {
+                console.error(`${error}`)
+            }
+        }
+        alReves("Hola Mundo")
+        // SOLUCIÓN PROFE: Función expresada
+        const invertirCadena = (cadena = "") =>
+            (!cadena)
+                ? console.warn("No ingresaste una cadena de texto")
+                : console.info(cadena.split("").reverse().join(""))
+        invertirCadena()
+        invertirCadena("Hola Mundo")
+        invertirCadena("JavaScript es un lenguaje de...")
+
+
+
+        // Ejercicio 6. Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+        console.log("********** Ejercicio 6 **********")
+        const contarPalabra = (textoLargo = "", palabraBuscar = "") => {
+            try {
+                if (textoLargo.length === undefined) {
+                    throw new Error("NO ESCRIBISTE UNA CADENA")
+                }
+                let numRepeticion = 0
+                let expresionRegular = new RegExp(palabraBuscar, "ig")
+                const arregloTexto = textoLargo.split(" ")
+                // console.log(arregloTexto.length)
+                // console.log(arregloTexto)
+                for (let i = 0; i <= arregloTexto.length; i++) {
+                    if (expresionRegular.test(arregloTexto[i]) == true) {
+                        numRepeticion++
+                    }
+                }
+                console.log("El número de veces que se repite " + palabraBuscar.toUpperCase() + " es: " + numRepeticion)
+                // let e1 = /palabraBuscar/ig --> BUSCA LITERAL, no una variable
+                // console.log(e1.test(textoLargo))
+            } catch (error) {
+                console.error(`${error}`)
+            }
+        }
+        contarPalabra("Hola mundo", "mundo")
+        // SOLUCIÓN PROFE: Función expresada
+        const textoEnCadena = (cadena = "", texto = "") => {
+            if (!cadena) return console.warn("No ingresaste un texto largo")
+            if (!texto) return console.warn("No ingresaste la palabra a evaluar")
+            let i = 0,
+            contador = 0
+            while (i !== -1) {
+                // Si el indexOf no encuentra, regresa un -1
+                i = cadena.indexOf(texto, i)
+                if (i !== -1) {
+                    i++
+                    contador++
+                }
+            }
+            return console.info(`La palabra ${texto} se repite ${contador} veces`)
+        }
+        textoEnCadena()
+        textoEnCadena("", "mundo")
+        textoEnCadena("Hola mundo adios mundo", "")
+        textoEnCadena("hola mundo adios mundo somos mundo si o no mundo", "mundo")
+
+
+
+
+
+
+        // Ejercicio 7. Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+        const palindromoWord = (palabra) => {
+            console.log("********** Ejercicio 7 **********")
+            try {
+                let cadenaAlReves = ""
+                // Validación
+                if (palabra.length === undefined) {
+                    throw new Error("No ingresaste una cadena")
+                }
+                for (let i = palabra.length; i >= 0; i--) {
+                    cadenaAlReves = cadenaAlReves + palabra.charAt(i)
+                }
+                if (cadenaAlReves.toUpperCase() === palabra.toUpperCase()) {
+                    console.log("TRUE")
+                } else {
+                    console.log("FALSE")
+                }
+            } catch (error) {
+                console.error(`${error}`)
+            }
+        }
+        palindromoWord("ReconocER")
+        // SOLUCIÓN PROFE: Función expresada
+        const palindromo = (palabra = "") => {
+            if (!palabra) return console.warn("No ingresaste una palabra o fase");
+            palabra = palabra.toLowerCase();
+            let alRevesss = palabra.split("").reverse().join("")
+            return (palabra === alRevesss)
+                ? console.info("SI ES PALINDROMO")
+                : console.info("NO ES PALÍNDROMO")
+        }
+        palindromo()
+        palindromo("Hola Mundo")
+        palindromo("Salas")
+
+
+
+
+
+        // Ejercicio 8. Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+        const patronCaracteres = (patron = "", seguir = "") => {
+            try {
+                const patronClave = []
+                if (patron === undefined) {
+                    throw new Error("ESTO NO ES UNA CADENA DE TEXTO")
+                }
+                const textoArreglo = patron.split(" ")
+                console.log(textoArreglo)
+                for (let i = 1; i < textoArreglo.length; i++) {
+                    let numSeguir = seguir.length // Número de subdivisión
+                    let clave = textoArreglo[i].slice(numSeguir, 3)
+                    console.log(clave + i)
+                }
+            } catch (error) {
+                console.warn(`${error}`)
+            }
+        }
+        patronCaracteres("xyz1, xyz2, xyz3, xyz4, xyz5", "xyz")
+        // SOLUCIÓN PROFE: Función expresada
+        const eliminarCaracteres = (texto = "", patron = "") =>
+            (!texto)
+                ? console.warn("No ingresaste un texto")
+                : (!patron)
+                    ? console.warn("No ingresaste un patrón de caracteres")
+                    : console.info(texto.replace(new RegExp(patron, "ig"), ""))
+        eliminarCaracteres()
+        eliminarCaracteres("xyz1, xyz2, xyz3, xyz4, xyz5")
+        eliminarCaracteres("xyz1, xyz2, xyz3, xyz4, xyz5", "xyz")
+    </script>
+</body>
+
+</html>

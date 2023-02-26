@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herencia prototípica</title>
+</head>
+<body>
+    <script>
+         // ********** Función constructora **********
+        // Donde asignamos los métodos al prototipo no a la función como tal
+        function Animal(nombre, genero) {
+        // Atributos
+        this.nombre = nombre
+        this.genero = genero
+        }
+
+        // ****** HERENCIA PROTOTÍPICA *******
+        function Perro(nombre, genero, tamanio) {
+            this.super = Animal
+            this.super(nombre, genero)
+            this.tamanio = tamanio
+        }
+
+        // Perro está heredando de Animal
+        Perro.prototype = new Animal()
+        Perro.prototype.constructor = Perro;
+
+        // Sobreescritura de métodos del Prototipo padre en el hijo
+        Perro.prototype.sonar = function() {
+            console.log("Soy un perro y mi sonido es un ladrido")
+        }
+
+        Perro.prototype.ladrar = function() {
+            console.log("Wow perros")
+        }
+
+        const snoopy = new Perro("Snoopy", "Macho", "Mediano")
+
+        console.log(snoopy)
+
+    </script>    
+</body>
+</html>

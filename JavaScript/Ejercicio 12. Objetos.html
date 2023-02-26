@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+</head>
+<body>
+    <script>
+        const b = {}
+        console.log(b)
+
+        const c = new Object();
+        console.log(c)
+
+        /* Dentro de un objeto a las variables se les llama ATRIBUTOS/PROPIEDADES
+        y a las funciones se les llama MÉTODOS
+        */
+
+        const brau = {
+            nombre: "Brau",
+            apellido: "Romero",
+            edad: 22,
+            pasatiempos: ["Correr", "Comer", "Jugar"],
+            soltero: false,
+            contacto: {
+                email: "jrm4912@gmail.com",
+                twitter: "@brau",
+                movil: "5512321209"
+            },
+            saludar: function(){
+                console.log("Hola :)")
+            },
+            decirMiNombre: function(){
+                console.log(`Hola me llamo ${this.nombre} ${this.apellido} y tengo ${this.edad} años y me 
+                puedes seguir como ${this.contacto.twitter} en twitter`)
+            }
+        }
+
+        console.log(brau)
+        console.log(brau["nombre"])
+        console.log(brau["apellido"])
+        console.log(brau.nombre)
+        console.log(brau.edad)
+        console.log(brau.soltero)
+        console.log(brau.pasatiempos)
+        console.log(brau.pasatiempos[1])
+        console.log(brau.contacto)
+
+        brau.saludar();
+        brau.decirMiNombre();
+
+        console.log(Object.keys(brau))
+        console.log(Object.values(brau))
+        console.log(brau.hasOwnProperty("nombre"))
+        console.log(brau.hasOwnProperty("nacimiento"))
+    </script>    
+</body>
+</html>
